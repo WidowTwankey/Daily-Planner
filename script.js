@@ -14,14 +14,6 @@ $(document).ready(function () {
 let timeBlocks = $("#timeblocks");
 
 times = [
-    "00:00-01:00",
-    "01:00-02:00",
-    "02:00-03:00",
-    "03:00-04:00",
-    "04:00-05:00",
-    "05:00-06:00",
-    "06:00-07:00",
-    "07:00-08:00",
     "08:00-09:00",
     "09:00-10:00",
     "10:00-11:00",
@@ -31,26 +23,21 @@ times = [
     "14:00-15:00",
     "15:00-16:00",
     "16:00-17:00",
-    "17:00-18:00",
-    "18:00-19:00",
-    "19:00-20:00",
-    "20:00-21:00",
-    "21:00-22:00",
-    "22:00-23:00",
-    "23:00-00:00",
+    "17:00-18:00"
 ]
 
-$('#timeblocks').on('click', 'button', function(){
-    let hourPlan = $('<button>');
-    timeblocks.button.append(hourPlan)
+$('#timeblocks').on('click', "button", function(event) {
+    let hourPlan = event.target.closest('button')
+    hourPlan.attr('type', 'text')
 })
 
+let currentHour = moment().hour();
 
 
-// if (currentHour === currentTime) {
-//     display .present
-// } else if (currentHour > currentTime) {
-//     display .future
-// } else if (currentHour < currentTime) {
-//     display.past
-// }
+if (currentHour === currentTime) {
+    display .present
+} else if (currentHour > currentTime) {
+    display .future
+} else if (currentHour < currentTime) {
+    display.past
+}
