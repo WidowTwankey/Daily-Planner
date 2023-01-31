@@ -40,15 +40,17 @@ times = [
     "23:00-00:00",
 ]
 
-
-let giveTimes = function () {
-    for (i = 0; i < times.length; i++) {
-
-
-    }
-}
+$('#timeblocks').on('click', 'button', function(){
+    let hourPlan = $('<button>');
+    timeblocks.button.append(hourPlan)
+})
 
 
 
-giveTimes();
-
+// if (currentHour === currentTime) {
+//     display .present
+// } else if (currentHour > currentTime) {
+//     display .future
+// } else if (currentHour < currentTime) {
+//     display.past
+// }
