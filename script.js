@@ -9,6 +9,7 @@ $(document).ready(function () {
     datetime = $('#currentDay')
     updateTime();
     setInterval(updateTime, 1000);
+    colorCode();
 });
 
 let timeBlocks = $("#timeblocks");
@@ -31,13 +32,20 @@ $('#timeblocks').on('click', "button", function(event) {
     hourPlan.attr('type', 'text')
 })
 
-let currentHour = moment().hour();
 
-
-if (currentHour === currentTime) {
-    display .present
-} else if (currentHour > currentTime) {
-    display .future
-} else if (currentHour < currentTime) {
-    display.past
+function colorCode() {
+    let currentHour = moment().hour();
+    $('div#timeblocks div').forEach(el => {
+        console.log(el)
+    })
 }
+
+
+
+// if (currentHour === data-hour) {
+//     container.className.replace("present")
+// } else if (currentHour > currentTime) {
+//     display .future
+// } else if (currentHour < currentTime) {
+//     display.past
+// }
