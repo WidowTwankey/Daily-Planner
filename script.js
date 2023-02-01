@@ -29,10 +29,12 @@ times = [
 ]
 
 $('#timeblocks').on('click', "div", function (event) {
-    let hourPlan = event.target.closest('div')
-    console.log(hourPlan)
-    $('<input>')
-   // hourPlan.attr('type', 'text')
+    let hourPlan = event.target.closest('div');
+    console.log(hourPlan);
+    let editable = hourPlan.querySelector('textarea');
+    editable.removeAttribute("disabled");
+    editable.focus();
+    // hourPlan.attr('type', 'text')
 })
 
 function colorCode() {
