@@ -10,6 +10,7 @@ $(document).ready(function () {
     updateTime();
     setInterval(updateTime, 1000);
     colorCode();
+    setInterval(colorCode, 60000);
 });
 
 let timeBlocks = $("#timeblocks");
@@ -27,25 +28,32 @@ times = [
     "17:00-18:00"
 ]
 
-$('#timeblocks').on('click', "button", function(event) {
-    let hourPlan = event.target.closest('button')
-    hourPlan.attr('type', 'text')
+$('#timeblocks').on('click', "div", function (event) {
+    let hourPlan = event.target.closest('div')
+    console.log(hourPlan)
+    $('<input>')
+   // hourPlan.attr('type', 'text')
 })
-
 
 function colorCode() {
     let currentHour = moment().hour();
-    $('div#timeblocks div').forEach(el => {
-        console.log(el)
+    let hourDivs = $('#timeblocks div');
+
+    hourDivs.each(function () {
+
+        const thisHour = parseInt($(this).attr("data-hour"));
+
+        if (currentHour > thisHour) {
+            $(this).removeClass("present")
+            $(this).addClass("past")
+        } else if (currentHour < thisHour) {
+            $(this).removeClass("present")
+            $(this).addClass("future")
+        } else if (currentHour === thisHour) {
+            $(this).removeClass("future")
+            $(this).addClass("present")
+        }
     })
 }
 
 
-
-// if (currentHour === data-hour) {
-//     container.className.replace("present")
-// } else if (currentHour > currentTime) {
-//     display .future
-// } else if (currentHour < currentTime) {
-//     display.past
-// }

@@ -83,9 +83,8 @@ textarea {
   align-items: center;
 }
 
-#timeblocks button{
+#timeblocks div{
   border: 3px solid rgb(82, 209, 251);
-  background-color: rgb(228, 248, 255);
   padding: 30px;
   margin: 2px;
   border-radius: 15px;
@@ -93,5 +92,4 @@ textarea {
   font-size: 25px;
   display:flex;
   justify-content: flex-start;
-  color: black;
 }
